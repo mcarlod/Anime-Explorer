@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Search from './components/Search.jsx'
 import Spinner from './components/Spinner.jsx'
+import AnimeCard from './components/AnimeCard.jsx'
 
 const API_BASE_URL = 'https://kitsu.io/api/edge';
 const API_OPTIONS = {
@@ -66,9 +67,7 @@ const App = () => {
                     ) : (
                         <ul>
                             {animeList.map((anime) => (
-                                <p key={anime.id} className="text-white">
-                                    {anime.attributes.canonicalTitle}
-                                </p>
+                                <AnimeCard key={anime.id} anime={anime} />
                             ))}
                         </ul>
                     )}

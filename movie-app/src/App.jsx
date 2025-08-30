@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
+import { useDebounce } from 'react-use'
 import Search from './components/Search.jsx'
 import Spinner from './components/Spinner.jsx'
 import AnimeCard from './components/AnimeCard.jsx'
+import {optimizeDeps} from "vite";
 
 const API_BASE_URL = 'https://kitsu.io/api/edge';
 const API_OPTIONS = {
@@ -17,12 +19,15 @@ const App = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [animeList, setAnimeList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
-    const fetchAnime = async () => {
+    useDebounce( () => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
+
+    const fetchAnime = async (query = '') => {
         setIsLoading(true);
         setErrorMessage('');
         try {
-            const endpoint = `${API_BASE_URL}/anime?page[limit]=20&page[offset]=0`;
+            const endpoint = query ? `${API_BASE_URL}/anime?filter[text]=${encodeURIComponent(query)}` : `${API_BASE_URL}/anime?page[limit]=20&page[offset]=0`;
             const response = await fetch(endpoint, API_OPTIONS);
 
             if (!response.ok) {
@@ -45,8 +50,8 @@ const App = () => {
         }
     }
     useEffect(() => {
-        fetchAnime();
-    }, [])
+        fetchAnime(debouncedSearchTerm);
+    }, [debouncedSearchTerm])
 
     return (
         <main>

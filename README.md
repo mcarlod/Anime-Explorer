@@ -4,7 +4,7 @@ A React JS app to explore anime shows using the [Kitsu API](https://kitsu.docs.a
 
 ## Demo
 
-![Screenshot](./public/anime-explorer.png)
+![Screenshot](./movie-app/public/anime-explorer.png)
 
 ---
 

@@ -31,7 +31,7 @@ A React JS app to explore anime shows using the [Kitsu API](https://kitsu.docs.a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/anime-explorer.git
+git clone https://github.com/mcarlod/Anime-Explorer.git
 cd movie-app
 ```
 

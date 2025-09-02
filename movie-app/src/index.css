@@ -57,6 +57,18 @@
         @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
     }
 
+    .pagination-buttons {
+        @apply flex justify-between items-center mt-6 px-5;
+    }
+
+    .pagination-buttons button {
+        @apply px-4 py-2 rounded-lg bg-dark-100 text-white font-bold hover:opacity-90 transition-opacity;
+    }
+
+    .pagination-buttons button:disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
     .trending {
         @apply mt-20;
 

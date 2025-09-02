@@ -62,7 +62,7 @@
     }
 
     .pagination-buttons button {
-        @apply px-4 py-2 rounded-lg bg-dark-100 text-white font-bold hover:opacity-90 transition-opacity;
+        @apply px-4 py-2 rounded-lg bg-purple-200 text-shadow-dark-100 font-bold hover:opacity-90 transition-opacity;
     }
 
     .pagination-buttons button:disabled {
